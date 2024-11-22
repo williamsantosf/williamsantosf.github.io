@@ -1,0 +1,46 @@
+/*Nesse arquivo serão definidos estilos Globais para todo o documento*/
+
+/*No body, definimos a fonte padrão (também a cor) do site, a margem de 0px*/
+body {
+  font-family: "Georama", Arial, Helvetica, sans-serif;
+  margin: 0px;
+  color: #141414;
+}
+
+/*DEfinimos também as margens padrão de 0px para as tags h1,h2,h3 e p*/
+h1,
+h2,
+h3,
+p {
+  margin: 0px;
+}
+
+/*Para as listas, também definimos um estilo padrão*/
+ul {
+  margin: 0px;
+  padding: 0px;
+  list-style: none; /*retira a bolinha da lista*/
+}
+
+img {
+  max-width: 100%; /*Define a largura máxima de QUALQUER imagem em 100%*/
+  height: auto; /*Caso a imagem fique distorlcida ao reduzir a tela*/
+  display: block; /*Display block para que ela não cresça infinitamente*/
+}
+
+.subtitulo {
+  font-size: 8rem; /*Tamanho da fonte*/
+  line-height: 1; /*altura da linha da experiencia*/
+  text-transform: uppercase; /*transforma em miuscula*/
+  word-break: break-all; /*quebra a palavra dentro do container*/
+  max-width: 4ch; /*caracter máximo até que ocorra a quebra (tamanho do caracter "0")*/
+}
+
+@media (max-width: 800px) {
+  /*definições globais de subtititulo no global*/
+  .subtitulo {
+    font-size: 3rem;
+    text-transform: capitalize; /*Primeira letra maiuscula*/
+    max-width: initial !important; /*Tamanho inicial da largura. A propriedade !important garante que essa instrução não será sobrescrita. Nesse caso foi necessário pois o subtitutulo da Formação não estava funcionando bem no responsivo (estava quebrando aos 5ch, conforme propriedade adicionada no arquivo formacao.css. Então colocamos na media query que esse valor não poderá ser sobrescrito, quando a resolução estiver abaixo de 800px */
+  }
+}

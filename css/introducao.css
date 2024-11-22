@@ -1,0 +1,68 @@
+#foto {
+  width: 80%;
+  height: auto;
+}
+
+.introducao {
+  max-width: 1200px; /*largura máxima na tela*/
+  padding: 40px 20px; /*40px pra cima e pra baixo, 20px aos lados*/
+  margin: 0 auto; /*0px pra cima e para baixo, automatica para os lados*/
+  display: grid; /*a introdução será um grid*/
+  grid-template-columns: 1fr 2fr; /*aqui separamaos em quantos gris, no caso 2 grids, sendo o segundo o dobro do primeiro*/
+  gap: 100px; /*espaçamento entre os itens (no caso a foto e o texto, que compoem a introdução*/
+}
+
+.introducao h1 {
+  font-size: 2.5rem; /*tamanho da fonte do texto d eintrodução*/
+  line-height: 1.125; /*altura da linha do texto*/
+  margin-bottom: 30px; /*a margem abaixo do texto*/
+  position: relative; /*para posicionamento do pseudoelemento*/
+}
+
+/*USAREMOS UM PESUEDO ELEMENTO PARA COLOCAR O DECORADOR DA PÁGINA*/
+.introducao h1::before {
+  content: ""; /*todo pseudoelemento tem um conteúdo, esse está em branco pois importaremos o SVG*/
+  display: block; /**/
+  width: 130px; /*largura do decorador*/
+  height: 100px; /*altura do decorador*/
+  background: url("../img/detalhe.svg") no-repeat center; /*local ond eestá salvo*/
+  position: absolute; /*posição absoluto com relação ao elemento pai (a introducao)*/
+  top: -15px; /*distancia do topo do elemento pai*/
+  left: -40px; /*posição a esquerda do elemento pai (o prórpio h1)*/
+  z-index: -1; /*para sempre estar por tás do texto*/
+}
+
+.introducao p {
+  font-size: 1.1rem; /*tamanho da fonte do paragrafo*/
+  color: #525252; /*cor da fonte*/
+}
+
+/*Essa media reduz o tamanho do h1 em telas abaixo de 1000px*/
+@media (max-width: 1000px) {
+  .introducao h1 {
+    font-size: 1.9rem;
+  }
+}
+
+/*essa media divide a introdução em dois tamanhos iguais e ajusta o gap para 40, também redimensiona o pseudo elemento*/
+@media (max-width: 800px) {
+  .introducao {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  .introducao h1::before {
+    width: 30px;
+    height: 10px;
+    left: 0px;
+  }
+}
+
+/*essa media coloca o grid em apenas uma coluna e elimina a foto em telos abaixo de 500px*/
+@media (max-width: 500px) {
+  .introducao {
+    grid-template-columns: 1fr;
+  }
+  .introducao img {
+    display: none;
+  }
+}

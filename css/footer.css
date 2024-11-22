@@ -1,0 +1,48 @@
+.footer {
+  background: #000;
+}
+
+.footer-container {
+  max-width: 1200px; /*largura máxima (também a largura máxima do site)*/
+  padding: 120px 20px 60px 20px; /*ajustando o padding */
+  margin: 0 auto; /*sem margem acima e abaixo, automatica para os lados*/
+  display: grid; /*elemento em grid*/
+  grid-template-columns: 1fr 1fr; /*separando as colunas do grid*/
+  gap: 100px; /*gap entre os elementos (disancia entre as colunas, já que o display é grid*/
+  align-items: center;
+}
+
+.footer-texto {
+  font-size: 1.5rem;
+  line-height: 1.33;
+  color: #ccc;
+}
+
+.footer-contato li {
+  font-weight: bold;
+  font-size: 2.25rem;
+  line-height: 1.1;
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+.footer-contato li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-copy {
+  grid-column: 1 / -1;
+  font-size: 1.125rem;
+  color: #8f8f8f;
+}
+
+@media (max-width: 800px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .footer-contato li {
+    font-size: 1.5rem;
+  }
+}

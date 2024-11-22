@@ -1,0 +1,119 @@
+.experiencia {
+  max-width: 1200px; /*largura máxima (também a largura máxima do site)*/
+  padding: 40px 20px; /*ajustando o padding */
+  margin: 0 auto; /*sem margem acima e abaixo, automatica para os lados*/
+  display: grid; /*elemento em grid*/
+  grid-template-columns: 1fr 2fr; /*separando as colunas do grid*/
+  gap: 100px; /*gap entre os elementos (disancia entre as colunas, já que o display é grid*/
+}
+
+.experiencia .subtitulo {
+  /*nesse caso, aproveitamos a classe experiencia que também servirá para formação, alterando somente a cor*/
+  color: #e0e0e0;
+}
+
+.experiencia-texto {
+  font-size: 1.5rem; /*tamanho da fonte do texto*/
+  line-height: 1.33; /*altura da linha (esse tamanho é em relação a própria altura da fonta)*/
+  max-width: 40ch; /*para que o texto se expanda no máximo à 40 caracteres, após isso quebra*/
+  margin-bottom: 60px; /*margem abaixo do texto*/
+  color: #525252; /*cor do texto*/
+}
+
+.experiencia-texto strong {
+  /*tag strong contida na classe experiencia-texto*/
+  color: #141414;
+}
+
+.empresa {
+  display: grid; /*coloca os elementos da classe em grid*/
+  grid-template-columns: 1fr 1fr; /*separa o grid em duas colunas iguais*/
+  gap: 10px 20px;
+  padding: 20px; /*acrescenta um expaço de 20px abaixo do texto*/
+  background: #f5f5f5; /*cor de fundo da classe*/
+  margin-bottom: 20px; /*espaçamento entre os itens*/
+  border-radius: 4px; /*borda arredondad*/
+  position: relative; /*posição relativa ao ano, que será absoluto*/
+}
+
+.empresa::before {
+  /*criamos um pseudo elemento para o decorador*/
+  content: ""; /*conteúdo vazio (todo pseudoelemento deve ter conteúdo*/
+  display: block; /*para que ocupeuma linha inteira*/
+  width: 4px; /*largura (conforme prototipo*/
+  height: 20px; /*altura*/
+  background: linear-gradient(
+    #b6f829,
+    #67dd0a
+  ); /*usar essa propridede que permite o uso de graidentes*/
+  position: absolute; /*posição absoluta em relação ao pai*/
+  top: 20px;
+  left: -4px;
+}
+
+.empresa-ano {
+  position: absolute; /*em relação à classe empresa (para retirar do fluxo)*/
+  top: 20px; /*posição com relação ao item pai*/
+  left: -100px; /*posição com relação ao item pai*/
+  color: #525252;
+}
+
+.empresa-titulo {
+  font-size: 1.125rem;
+  line-height: 1.1;
+  font-weight: bold; /*para estilizar o testo da função, pois o h3 já é boldo por padrão*/
+}
+
+.empresa-texto {
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: #525252;
+}
+
+.empresa-habilidades {
+  display: flex; /*para que fiqem uma ao lado da outra*/
+  flex-wrap: wrap; /*para que quebre quando não houver mais espaço na linha*/
+  gap: 10px; /*distância entre os itens*/
+  align-content: center; /*sempre começar no inicio do grid*/
+}
+
+.empresa-habilidades li {
+  /*para estilizar cada item das habilidades, falamos diretamento com cada item*/
+  font-size: 0.875rem; /*tamanho fonte*/
+  line-height: 1.4; /*altura da linha*/
+  border-radius: 4px; /*borda arredondada*/
+  background: #fff; /*cor de fundo*/
+  padding: 5px 10px; /*altra acima-abaixo e lados*/
+}
+
+/*responsividade da experiencia*/
+@media (max-width: 800px) {
+  .experiencia {
+    grid-template-columns: 1fr; /*em uma coluna apenas*/
+    gap: 40px; /*distancia de 40px do texto*/
+  }
+  .experiencia .subtitulo {
+    /*estilo subtitulo no responsivo*/
+    color: #141414;
+  }
+  .experiencia-texto {
+    font-size: 1.25rem;
+  }
+}
+.empresa-ano {
+  /*Para estilizar o ano no mobile*/
+  font-size: 0.8rem;
+  position: initial; /*posição inicial (antes de aplicado qualquer estilo)*/
+  order: 1; /*Ordem do elemento (ficará sempre abaixo pois os demais elementos não possume ordem definida*/
+  width: initial; /*largura inicial (nesse caso não houve alteração pois o estilo já estava igual ao prototipo*/
+  text-align: left; /*largura inicial (nesse caso não houve alteração pois o estilo já estava igual ao prototipo*/
+}
+.empresa-ano::before {
+  content: "Ano: "; /*Criação de um pseudo elemento para indicar o ano.*/
+}
+
+@media (max-width: 400px) {
+  .empresa {
+    grid-template-columns: 1fr;
+  }
+}

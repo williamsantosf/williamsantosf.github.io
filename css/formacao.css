@@ -1,0 +1,155 @@
+.formacao {
+  background: #141414;
+  color: #fff; /*Enquanto estamos trabalhando o fundo*/
+}
+
+.formacao-container {
+  max-width: 1200px; /*largura máxima (também a largura máxima do site)*/
+  padding: 120px 20px; /*ajustando o padding */
+  margin: 0 auto; /*sem margem acima e abaixo, automatica para os lados*/
+  display: grid; /*elemento em grid*/
+  grid-template-columns: 1fr 2fr; /*separando as colunas do grid*/
+  gap: 100px; /*gap entre os elementos (disancia entre as colunas, já que o display é grid*/
+  position: relative; /*para alinhamento do pseudoelemento*/
+}
+
+.formacao-container::after {
+  content: "";
+  display: block;
+  width: 130px;
+  height: 100px;
+  background: url("../img/detalhe.svg") no-repeat center;
+  position: absolute;
+  bottom: -50px;
+}
+
+.formacao .subtitulo {
+  color: #000;
+  max-width: 5ch; /*Para ajustar o subtitulo formação conforme prototipo. Obs.: vide arquivo global*/
+}
+
+.formacao-texto {
+  font-size: 1.5rem; /*tamanho da fonte do texto*/
+  line-height: 1.33; /*altura da linha (esse tamanho é em relação a própria altura da fonta)*/
+  max-width: 40ch; /*para que o texto se expanda no máximo à 40 caracteres, após isso quebra*/
+  margin-bottom: 60px; /*margem abaixo do texto*/
+  color: #a3a3a3; /*cor do texto*/
+}
+
+.formacao-texto strong {
+  color: #fff;
+}
+
+.faculdade-lista {
+  display: flex; /*para alinhar os itens da lista lado a lado*/
+  flex-wrap: wrap; /*para que quebre a lista quando não couber na página*/
+  gap: 20px; /*espaçamento entre os itens da lista*/
+  margin-bottom: 60px; /*margem abaixo da lista*/
+}
+
+.faculdade {
+  flex: 1; /*para que os itens dentro do container flexível crecçam de maneira igual*/
+  background: #000000; /*corde fundo dos itens*/
+  padding: 20px; /*espaçamento interno*/
+  border-radius: 4px; /*borda arredondada*/
+  /*As duas props abaixo servem para poder aplicar o estilo aos spans (faculdade-tipo)*/
+  display: flex;
+  flex-direction: column;
+}
+
+.faculdade-tipo {
+  font-size: 0.875rem; /*tamanho da fonte*/
+  text-transform: uppercase; /*tranforma tudo em maiuscula*/
+  color: #a3a3a3; /*cor da fonte*/
+  margin-bottom: 10px; /*margem abaixo (para funcionar, aplicar display: flex e flex-direction: column em .faculdade*/
+}
+
+.faculdade-curso {
+  flex: 1; /*Indica que o conteudo (nome do curso) deve crescer o máximo que puder: para que o nome da instituição fique alinhado sempre na ponta do item faculdade*/
+  font-size: 1.125rem; /*tamanho da fonte do nome do curso*/
+  line-height: 1.4; /*altura da linha*/
+  margin-bottom: 40px; /*margem abaixo*/
+  position: relative; /*posição relativa para criar o pseudo elemento*/
+}
+
+.faculdade-curso::before {
+  /*criamos um pseudo elemento para o decorador*/
+  content: ""; /*conteúdo vazio (todo pseudoelemento deve ter conteúdo*/
+  display: block; /*para que ocupeuma linha inteira*/
+  width: 4px; /*largura (conforme prototipo*/
+  height: 20px; /*altura*/
+  background: linear-gradient(
+    #b6f829,
+    #67dd0a
+  ); /*usar essa propridede que permite o uso de graidentes*/
+  position: absolute; /*posição absoluta em relação ao pai*/
+  left: -24px; /*posição em relação ao item relativo (20px do padding + 4px do proprio elemento*/
+}
+
+.cursos {
+  margin-bottom: 60px;
+}
+
+.formacao-extra h3 {
+  font-size: 0.875rem; /*tamanho da fonte do titulo*/
+  line-height: 1.4; /*altura da linha*/
+  color: #8f8f8f; /*cor do texto do titulo*/
+  text-transform: uppercase; /*tudo em maiuscula*/
+  margin-bottom: 30px; /*margem abaixo*/
+  position: relative; /*posição relativa para para posicionar o pseudo elemento*/
+}
+
+/*Criação do pseudo elemento que conterá os ícones dos cursos.*/
+
+.formacao-extra h3::before {
+  /*O código abaixo agrupa estilos comuns em uma definição genérica e depois especifica adicionalmente para certos contextos (.cursos e .idiomas). Isso não é herança, mas uma prática eficiente de reutilização de código CSS.*/
+  display: block;
+  content: "";
+  width: 24px; /*dimensões do arquivo svg*/
+  height: 24px; /*dimensões do arquivo svg*/
+  position: absolute;
+  left: -36px; /*12px + 24px*/
+  top: -4px;
+}
+
+/*As regras abaixo adicionam estilos específicos aos pseudoelementos ::before dos h3 dentro de .cursos e .idiomas, especificamente alterando a propriedade de background.*/
+.cursos h3::before {
+  background: url("../img/cursos.svg") no-repeat center center; /*para garantir que a imagem não se repita e que fique alinhada aocentro do pseudoelemento. No item abaixo, não usamos, pois as dimenções do pseudoelemento já não deixa vizualizar as imagens repetidas*/
+}
+
+.idiomas h3::before {
+  background: url("../img/idiomas.svg");
+}
+
+.formacao-extra li {
+  font-size: 1.125rem;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.formacao-extra span {
+  color: #8f8f8f; /*altera a cor das horas dos cursos*/
+}
+
+.cursos li {
+  display: flex; /*para separar o nome do curso das horas, tornamos os itens flexiveis*/
+  justify-content: space-between; /*definimos o espaço entre os itens*/
+}
+
+@media (max-width: 800px) {
+  .formacao-container {
+    grid-template-columns: 1fr; /*coloca o container em uma coluna apenas*/
+    padding: 60px 20px; /*espaçamentos acima/abaixo e aos lados*/
+    gap: 40px; /*espeçamento entre itens*/
+  }
+  .formacao .subtitulo {
+    color: #fff; /*altera a cor do subtitulo*/
+  }
+  .formacao-texto {
+    font-size: 1.125rem; /*altera a fonte do subtitulo*/
+  }
+  .formacao-extra h3::before {
+    position: initial; /*está sendo  usando o valor inicial para position, que é static. Portanto, ele será posicionado conforme o fluxo normal do documento.*/
+    margin-bottom: 10px; /*margem abaixo*/
+  }
+}
