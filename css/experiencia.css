@@ -99,17 +99,17 @@
   .experiencia-texto {
     font-size: 1.25rem;
   }
-}
-.empresa-ano {
-  /*Para estilizar o ano no mobile*/
-  font-size: 0.8rem;
-  position: initial; /*posição inicial (antes de aplicado qualquer estilo)*/
-  order: 1; /*Ordem do elemento (ficará sempre abaixo pois os demais elementos não possume ordem definida*/
-  width: initial; /*largura inicial (nesse caso não houve alteração pois o estilo já estava igual ao prototipo*/
-  text-align: left; /*largura inicial (nesse caso não houve alteração pois o estilo já estava igual ao prototipo*/
-}
-.empresa-ano::before {
-  content: "Ano: "; /*Criação de um pseudo elemento para indicar o ano.*/
+  .empresa-ano {
+    /*Para estilizar o ano no mobile*/
+    font-size: 0.8rem;
+    position: initial; /*posição inicial (antes de aplicado qualquer estilo)*/
+    order: 1; /*Ordem do elemento (ficará sempre abaixo pois os demais elementos não possume ordem definida*/
+    width: initial; /*largura inicial (nesse caso não houve alteração pois o estilo já estava igual ao prototipo*/
+    text-align: left; /*largura inicial (nesse caso não houve alteração pois o estilo já estava igual ao prototipo*/
+  }
+  .empresa-ano::before {
+    content: "Ano: "; /*Criação de um pseudo elemento para indicar o ano.*/
+  }
 }
 
 @media (max-width: 400px) {
