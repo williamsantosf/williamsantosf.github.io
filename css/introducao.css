@@ -37,6 +37,24 @@
   color: #525252; /*cor da fonte*/
 }
 
+.download a {
+  display: block;
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: rgb(51, 110, 65);
+  background: linear-gradient(#b6f829, #67dd0a);
+  border-radius: 50px;
+  padding: 8px;
+  text-align: center;
+  max-width: 300px;
+  margin-top: 112px;
+  margin-left: 120px;
+}
+
+.download a:hover {
+  background: linear-gradient(#b6f829, #a4d128);
+}
+
 /*Essa media reduz o tamanho do h1 em telas abaixo de 1000px*/
 @media (max-width: 1000px) {
   .introducao h1 {
