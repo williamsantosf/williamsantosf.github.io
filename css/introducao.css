@@ -73,6 +73,14 @@
     height: 10px;
     left: 0px;
   }
+  .download a {
+    margin-left: 24px;
+    color: black;
+    height: 50px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    align-content: center;
+  }
 }
 
 /*essa media coloca o grid em apenas uma coluna e elimina a foto em telos abaixo de 500px*/
